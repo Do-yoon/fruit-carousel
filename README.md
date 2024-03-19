@@ -3,6 +3,7 @@
 
 ## 実行方法
 ```
+npm config set legacy-peer-deps true
 npm install
 npm run dev
 ```

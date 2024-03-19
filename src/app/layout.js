@@ -39,9 +39,9 @@ export default function RootLayout() {
   return (
     <html lang="ko">
       <body className={inter.className}>
-        <div id="click-area" onClick={e => setState((state+1) % 5)}></div>
+        <div id="click-area" onClick={e => setTimeout(setState((state+1) % 5))}></div>
         <div id="background-color-area" style={background[order[state]]} state={state}>
-          <Header state={order[state]}/>
+          <Header state={order[state]} setState={setState}/>
           <FruitCarousel state={order[state]}/>
         </div>
       </body>

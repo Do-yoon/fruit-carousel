@@ -95,10 +95,7 @@ body {
   top: 72px;
 }
 
-#menu-element-1 {
-  
-  /* item 1 */
-
+.menu-element {
   box-sizing: border-box;
 
   /* Auto layout */
@@ -107,106 +104,41 @@ body {
   align-items: flex-start;
   padding: 7px 22px;
   gap: 11px;
-
-  width: 124px;
-  height: 52px;
 
   /* Inside auto layout */
   flex: none;
   order: 0;
   flex-grow: 0;
 
+  z-index: 11;
 }
 
-#menu-element-2 {
-  /* item 2 */
+.menu-element-1 {
+  width: 124px;
+  height: 52px;
+}
 
-  box-sizing: border-box;
-
-  /* Auto layout */
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  padding: 7px 22px;
-  gap: 11px;
-
+.menu-element-2 {
   width: 139px;
   height: 52px;
-
-  /* Inside auto layout */
-  flex: none;
-  order: 1;
-  flex-grow: 0;
-
 }
 
-#menu-element-3 {
-  /* item 3 */
-
-  box-sizing: border-box;
-
-  /* Auto layout */
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  padding: 7px 22px;
-  gap: 11px;
-
+.menu-element-3 {
   width: 167px;
   height: 52px;
-
-  /* Inside auto layout */
-  flex: none;
-  order: 2;
-  flex-grow: 0;
-
 }
 
-#menu-element-4 {
-  /* item 5 */
-
-  box-sizing: border-box;
-
-  /* Auto layout */
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  padding: 7px 22px;
-  gap: 11px;
-
+.menu-element-4 {
   width: 161px;
   height: 52px;
-
-  /* Inside auto layout */
-  flex: none;
-  order: 3;
-  flex-grow: 0;
-
 }
 
-#menu-element-5 {
-  /* item 4 */
-
-  box-sizing: border-box;
-
-  /* Auto layout */
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  padding: 7px 22px;
-  gap: 11px;
-
+.menu-element-5 {
   width: 92px;
   height: 52px;
-
-  /* Inside auto layout */
-  flex: none;
-  order: 4;
-  flex-grow: 0;
-
 }
 
-#taste-drive-button {
+.taste-drive-button {
   /* button */
 
   /* Auto layout */
@@ -229,8 +161,7 @@ body {
   order: 5;
   flex-grow: 0;
 
-
- 
+  z-index: 11;
 }
 
 #taste-drive {
@@ -294,11 +225,9 @@ span {
   flex: none;
   order: 0;
   flex-grow: 0;
-
-
 }
 
-#banana-image {
+#banana-image { 
   position: absolute;
   width: 628px;
   height: 553px;
@@ -362,7 +291,7 @@ span {
   filter: blur(200px);
 }
 
-#text-area {
+.text-area {
   /* Auto layout */
   display: flex;
   flex-direction: column;
@@ -374,9 +303,11 @@ span {
   height: 476px;
   left: 239px;
   top: 398px;
+
+  transition: 0.3s all linear;
 }
 
-#title {
+.title {
   width: 689px;
   height: 104px;
 
@@ -398,7 +329,7 @@ span {
 
 }
 
-#description {
+.description {
   /* Bananas are a popular tropical fruit known for their distinctive yellow color and sweet taste. They are botanically classified as berries and grow in clusters on large herbaceous plants. Bananas are rich in essential nutrients such as potassium, vitamin C, and dietary fiber, making them a convenient and healthy snack option for athletes and individuals of all ages. */
 
   width: 689px;
@@ -423,7 +354,7 @@ span {
 
 }
 
-#ctas {
+.ctas {
   /* CTAs */
 
   /* Auto layout */
@@ -444,7 +375,7 @@ span {
 
 }
 
-#ctas-button {
+.ctas-button {
   /* button */
 
   /* Auto layout */
@@ -466,9 +397,11 @@ span {
   flex: none;
   order: 0;
   flex-grow: 0;
+
+  z-index: 11;
 }
 
-#ctas-taste-drive {
+.ctas-taste-drive {
   /* Taste Drive */
 
   width: 124px;
@@ -534,4 +467,123 @@ span {
   width: 1920px;
   height: 1080px;
   z-index: 10;
+}
+
+#designed-by {
+  /* designed by */
+
+  /* Auto layout */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding: 0px;
+  gap: 12px;
+
+  position: absolute;
+  width: 171px;
+  height: 52px;
+  left: 30px;
+  top: 1005px;
+
+  opacity: 0.3;
+
+}
+
+#link {
+  /* nashekrashe.com */
+
+  width: 171px;
+  height: 22px;
+
+  font-family: 'Figtree';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 22px;
+  /* identical to box height, or 200% */
+  display: flex;
+  align-items: flex-end;
+  letter-spacing: -0.02em;
+
+  /* text */
+  color: rgba(0, 0, 0, 0.7);
+
+
+  /* Inside auto layout */
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+
+}
+
+#designer-logo {
+  /* logo_nk */
+
+
+
+  /* text */
+  background: rgba(0, 0, 0, 0.7);
+
+  /* Inside auto layout */
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+
+}
+
+.ModalOpen {
+  animation: openModal 0.3s ease-in forwards;
+}
+
+.ModalClosed {
+  animation: closeModal 0.4s ease-out forwards;
+}
+
+@keyframes openModal {
+  0% {
+    opacity: 0;
+    transform: translateY(600px);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+@keyframes closeModal {
+  0% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+  40% {
+    opacity: 0.8;
+    transform: translateY(-50px);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(600px);
+  }
+}
+
+.fruitOpen {
+  animation: openFruit 0.3s ease-in forwards;
+}
+
+@keyframes openFruit {
+  0% {
+    opacity: 1;
+    transform: scale(0, 0)
+  }
+  60% {
+    opacity: 1;
+    transform: scale(1.05, 1.05)
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1, 1);
+  }
 }

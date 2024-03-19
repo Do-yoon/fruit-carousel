@@ -1,11 +1,7 @@
 import Image from 'next/image'
 import "../globals.css";
 
-function onClickLogo() {
-    
-}
-
-export default function Header({state}) {
+export default function Header({state, setState}) {
     const selected = {
         color: '#363839',
         textShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)'
@@ -81,31 +77,29 @@ export default function Header({state}) {
         }
       }
 
-    console.log(state)
-
     return (
         <div id="header">
             <div>
-                <a href="/" className="logo"/>
+                <a href="/" className="logo" style={{zIndex: 11}}/>
                 <Image className="logo" alt="logo" src="/fruitylips.svg" width={226.56} height={64.73}/>
             </div>
             <div id="menu">
-                <div id="menu-element-1" style={(state === "Banana" ? border[state] : {})}>
+                <div className="menu-element menu-element-1" style={(state === "Banana" ? border[state] : {})} onClick={e => setState(0)}>
                     <span style={(state === "Banana" ? selected : {})}>Banana</span>
                 </div>
-                <div id="menu-element-2" style={(state === "Coconut" ? border[state] : {})}>
+                <div className="menu-element menu-element-2" style={(state === "Coconut" ? border[state] : {})} onClick={e => setState(1)}>
                     <span style={(state === "Coconut" ? selected : {})}>Coconut</span>
                 </div>
-                <div id="menu-element-3" style={(state === "Strawberry" ? border[state] : {})}>
+                <div className="menu-element menu-element-3" style={(state === "Strawberry" ? border[state] : {})} onClick={e => setState(2)}>
                     <span style={(state === "Strawberry" ? selected : {})}>Strawberry</span>
                 </div>
-                <div id="menu-element-4" style={(state === "Blackberry" ? border[state] : {})}>
+                <div className="menu-element menu-element-4" style={(state === "Blackberry" ? border[state] : {})} onClick={e => setState(3)}>
                     <span style={(state === "Blackberry" ? selected : {})}>Blackberry</span>
                 </div>
-                <div id="menu-element-5" style={(state === "Kiwi" ? border[state] : {})}>
+                <div className="menu-element menu-element-5" style={(state === "Kiwi" ? border[state] : {})} onClick={e => setState(4)}>
                     <span style={(state === "Kiwi" ? selected : {})}>Kiwi</span>
                 </div>
-                <div id="taste-drive-button" style={tasteDriveButton[state]}>
+                <div className="taste-drive-button" style={tasteDriveButton[state]}>
                     <span id="taste-drive">Taste Drive</span>
                 </div>
             </div>
