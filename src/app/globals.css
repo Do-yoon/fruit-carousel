@@ -269,13 +269,11 @@ span {
 
 #glow {
   /* glow_s */
-
   position: absolute;
   width: 701px;
   height: 701px;
   left: 990px;
   top: 285px;
-
 }
 
 #glow-circle {
@@ -289,6 +287,36 @@ span {
   background: #FFFFFF;
   opacity: 0.5;
   filter: blur(200px);
+}
+
+.fruit-area {
+  position: absolute;
+  transition: 0.3s all linear;
+}
+
+#banana-area {
+  width: 701px;
+  height: 701px;
+}
+
+#coconut-area {
+  width: 701px;
+  height: 701px;
+}
+
+#strawberry-area {
+  width: 750px;
+  height: 701px;
+}
+
+#blackberry-area {
+  width: 701px;
+  height: 701px;
+}
+
+#kiwi-area {
+  width: 751px;
+  height: 701px;
 }
 
 .text-area {
@@ -462,10 +490,23 @@ span {
   height: 1080px;
 }
 
-#click-area {
+#right-click-area {
   position: absolute;
-  width: 1920px;
-  height: 1080px;
+  width: 930px;
+  height: 888px;
+  left: 990px;
+  top: 192px;
+
+  z-index: 10;
+}
+
+#left-click-area {
+  position: absolute;
+  width: 930px;
+  height: 888px;
+  left: 0px;
+  top: 192px;
+
   z-index: 10;
 }
 
@@ -532,11 +573,11 @@ span {
 }
 
 .ModalOpen {
-  animation: openModal 0.3s ease-in forwards;
+  animation: openModal 0.4s;
 }
 
 .ModalClosed {
-  animation: closeModal 0.4s ease-out forwards;
+  animation: closeModal 0.5s;
 }
 
 @keyframes openModal {
@@ -544,9 +585,9 @@ span {
     opacity: 0;
     transform: translateY(600px);
   }
-  60% {
+  80% {
     opacity: 1;
-    transform: translateY(-50px);
+    transform: translateY(-10px);
   }
   100% {
     opacity: 1;
@@ -559,9 +600,9 @@ span {
     opacity: 1;
     transform: translateY(0px);
   }
-  40% {
+  20% {
     opacity: 0.8;
-    transform: translateY(-50px);
+    transform: translateY(-10px);
   }
   100% {
     opacity: 0;
@@ -570,20 +611,63 @@ span {
 }
 
 .fruitOpen {
-  animation: openFruit 0.3s ease-in forwards;
+  animation: openFruit 0.4s;
+  transform-origin: 1300px 650px;
+}
+
+.fruitClose {
+  animation: closeFruit 0.5s;
+  transform-origin: 1300px 650px;
 }
 
 @keyframes openFruit {
   0% {
-    opacity: 1;
-    transform: scale(0, 0)
+    transform: scale(0);
+    opacity: 0;
   }
-  60% {
-    opacity: 1;
-    transform: scale(1.05, 1.05)
+  70% {
+    transform: scale(1.05);
   }
   100% {
-    opacity: 1;
-    transform: scale(1, 1);
+    transform: scale(1);
+  }
+}
+
+@keyframes closeFruit {
+  0% {
+    transform: scale(1);
+  }
+  30% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(0);
+    opacity: 0;
+  }
+}
+
+#arrow-in {
+  animation: fadeIn 0.4s;
+}
+
+#arrow-out {
+  animation: fadeOut 0.5s;
+}
+
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+  }
+  to {
+      opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+      opacity: 1;
+  }
+  to {
+      opacity: 0;
   }
 }

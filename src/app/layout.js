@@ -34,15 +34,40 @@ const background = {
 }
 
 export default function RootLayout() {
-  const [state, setState] = useState(0)
+  const [state, setState] = useState(0);
+  const [showComponent, setShowComponent] = useState(false);
+  const [prevState, setPrevState] = useState("Banana");
+
+  function nextCarousel() {
+    setPrevState(order[state])
+    setState((state+1) % 5);
+    setShowComponent(false);
+  }
+
+  function prevCarousel() {
+    setPrevState(order[state]);
+    (state === 0 ? setState(4) : setState((state-1) % 5))
+    setShowComponent(false);
+  }
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowComponent(true);
+      console.log("do!");
+    }, 1000);
+    return () => clearTimeout(timer);
+  }, [showComponent])
+
+  console.log(`state: ${state} showComponent: ${showComponent}`)
 
   return (
     <html lang="ko">
       <body className={inter.className}>
-        <div id="click-area" onClick={e => setTimeout(setState((state+1) % 5))}></div>
-        <div id="background-color-area" style={background[order[state]]} state={state}>
-          <Header state={order[state]} setState={setState}/>
-          <FruitCarousel state={order[state]}/>
+        <div id="right-click-area" onClick={(e) => nextCarousel()}></div>
+        <div id="left-click-area" onClick={(e) => prevCarousel()}></div>
+        <div id="background-color-area" style={( showComponent ? background[order[state]] : background[prevState])} state={state}>
+          <Header state={order[state]} showComponent={showComponent} setState={setState} prevState={prevState} setPrevState={setPrevState} setShowComponent={setShowComponent}/>
+          <FruitCarousel state={order[state]} showComponent={showComponent}/>
         </div>
       </body>
     </html>

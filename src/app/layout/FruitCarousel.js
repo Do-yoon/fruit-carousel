@@ -20,110 +20,129 @@ function timeout(delay) {
   return new Promise( res => setTimeout(res, delay) );
 }
 
-export default function FruitCarousel({state}) {
-  const [showComponent, setShowComponent] = useState(false);
-
-  useEffect(() => {
-    setTimeout(() => {
-      setShowComponent(true)
-    }, 1000)
-  }, [])
+export default function FruitCarousel({showComponent, state}) {
 
   return (
     <div>
-      <div id="carousel-arrow">
-        <Image id="left-arrow" alt="left-arrow" src="/left-arrow.png" width={60} height={60}/>
-        <Image id="right-arrow" alt="right-arrow" src="/right-arrow.png" width={60} height={60}/>
-      </div>
-
       <Transition
-        in={Boolean(state === "Banana")}
+        in={Boolean(showComponent)}
         timeout={animationTiming}
         mountOnEnter
         unmountOnExit
       >
         {s => (
-          <div className={(s === 'entering' && showComponent ? 'fruitOpen' : (s === 'exiting' ? 'ModalClosed' : null))}>
-            <div id="glow">
-              <div id="glow-circle"></div>
+      <div id={(s === 'entering' ? 'arrow-in' : (s === 'exiting' ? 'arrow-out' : null))}>
+        <div id="carousel-arrow">
+          <Image id="left-arrow" alt="left-arrow" src="/left-arrow.png" width={60} height={60}/>
+          <Image id="right-arrow" alt="right-arrow" src="/right-arrow.png" width={60} height={60}/>
+        </div>
+        <div id="designed-by">
+          <Image id="designer-logo" alt="designer-logo" src="/logo_nk.png" width={171} height={18}></Image>
+          <span id="link">nashekrashe.com</span>
+        </div>
+      </div>
+        )}
+      </Transition>
+
+      {/* Fruits' image */}
+      <Transition
+        in={Boolean(state === "Banana" && showComponent)}
+        timeout={animationTiming}
+        mountOnEnter
+        unmountOnExit
+      >
+        {s => (
+          <div className={(s === 'entering' ? 'fruitOpen' : (s === 'exiting' ? 'fruitClose' : null))}>
+            <div id="banana-area" className="fruit-area">
+              <div id="glow">
+                <div id="glow-circle"></div>
+              </div>
+              <Image id="banana-image" alt="banana-image" src="/banana.png" width={628} height={553}/>
             </div>
-            {( state === "Banana" ? <Image id="banana-image" alt="banana-image" src="/banana.png" width={628} height={553}/> : <></>)}
           </div>
           
         )}
       </Transition>
       <Transition
-        in={Boolean(state === "Coconut")}
+        in={Boolean(state === "Coconut" && showComponent)}
         timeout={animationTiming}
         mountOnEnter
         unmountOnExit
       >
         {s => (
-          <div className={((s === 'entering' && showComponent) ? 'fruitOpen' : (s === 'exiting' ? 'ModalClosed' : null))}>
-          <div id="glow">
-            <div id="glow-circle"></div>
+          <div className={(s === 'entering' ? 'fruitOpen' : (s === 'exiting' ? 'fruitClose' : null))}>
+            <div id="coconut-area" className="fruit-area">
+              <div id="glow">
+                <div id="glow-circle"></div>
+              </div>
+              <Image id="coconut-image" alt="coconut-image" src="/coconut.png" width={628} height={553}/>
+            </div>
           </div>
-          {( state === "Coconut" ? <Image id="coconut-image" alt="coconut-image" src="/coconut.png" width={628} height={553}/> : <></>)}
-        </div>
         )}
       </Transition>
       <Transition
-        in={Boolean(state === "Strawberry")}
+        in={Boolean(state === "Strawberry" && showComponent)}
         timeout={animationTiming}
         mountOnEnter
         unmountOnExit
       >
         {s => (
-          <div className={((s === 'entering' && showComponent) ? 'fruitOpen' : (s === 'exiting' ? 'ModalClosed' : null))}>
-          <div id="glow">
-            <div id="glow-circle"></div>
-          </div>
-          {( state === "Strawberry" ? <Image id="strawberry-image" alt="strawberry-image" src="/strawberry.png" width={628} height={553}/> : <></>)}
+          <div className={(s === 'entering' ? 'fruitOpen' : (s === 'exiting' ? 'fruitClose' : null))}>
+            <div id="strawberry-area" className="fruit-area">
+              <div id="glow">
+                <div id="glow-circle"></div>
+              </div>
+              <Image id="strawberry-image" alt="strawberry-image" src="/strawberry.png" width={628} height={553}/>
+            </div>
           </div>
         )}
       </Transition>
         <Transition
-        in={Boolean(state === "Blackberry")}
+        in={Boolean(state === "Blackberry" && showComponent)}
         timeout={animationTiming}
         mountOnEnter
         unmountOnExit
       >
         {s => (
-          <div className={((s === 'entering' && showComponent) ? 'fruitOpen' : (s === 'exiting' ? 'ModalClosed' : null))}>
-          <div id="glow">
-            <div id="glow-circle"></div>
-          </div>
-          {( state === "Blackberry" ? <Image id="blackberry-image" alt="blackberry-image" src="/blackberry.png" width={628} height={553}/> : <></>)}
+          <div className={(s === 'entering' ? 'fruitOpen' : (s === 'exiting' ? 'fruitClose' : null))}>
+            <div id="blackberry-area" className="fruit-area">
+              <div id="glow">
+                <div id="glow-circle"></div>
+              </div>
+              <Image id="blackberry-image" alt="blackberry-image" src="/blackberry.png" width={628} height={553}/>
+            </div>
           </div>
         )}
       </Transition>
           <Transition
-        in={Boolean(state === "Kiwi")}
+        in={Boolean(state === "Kiwi" && showComponent)}
         timeout={animationTiming}
         mountOnEnter
         unmountOnExit
       >
         {s => (
-          <div className={((s === 'entering' && showComponent) ? 'fruitOpen' : (s === 'exiting' ? 'ModalClosed' : null))}>
-          <div id="glow">
-            <div id="glow-circle"></div>
-          </div>
-          {( state === "Kiwi" ? <Image id="kiwi-image" alt="kiwi-image" src="/kiwi.png" width={628} height={553}/> : <></>)}
+          <div className={(s === 'entering' ? 'fruitOpen' : (s === 'exiting' ? 'fruitClose' : null))}>
+            <div id="kiwi-area" className="fruit-area">
+            <div id="glow">
+              <div id="glow-circle"></div>
+            </div>
+            <Image id="kiwi-image" alt="kiwi-image" src="/kiwi.png" width={628} height={553}/>
+            </div>
           </div>
         )}
       </Transition>
 
         
              
-      
+      {/* Text area */}
       <Transition
-        in={Boolean(state === "Banana")}
+        in={Boolean(state === "Banana" && showComponent)}
         timeout={animationTiming}
         mountOnEnter
         unmountOnExit
       >
         {s => (
-          <div className={((s === 'entering' && showComponent) ? 'ModalOpen' : (s === 'exiting' ? 'ModalClosed' : null))}>
+          <div className={((s === 'entering') ? 'ModalOpen' : (s === 'exiting' ? 'ModalClosed' : null))}>
             <div className="text-area">
               <span className="title">Banana</span>
               <p className="description">{description["Banana"]}</p>
@@ -138,13 +157,13 @@ export default function FruitCarousel({state}) {
       </Transition>
 
       <Transition
-        in={Boolean(state === "Coconut")}
+        in={Boolean(state === "Coconut" && showComponent)}
         timeout={animationTiming}
         mountOnEnter
         unmountOnExit
       >
         {s => (
-          <div className={(s === 'entering' && showComponent ? 'ModalOpen' : (s === 'exiting' ? 'ModalClosed' : null))}>
+          <div className={(s === 'entering' ? 'ModalOpen' : (s === 'exiting' ? 'ModalClosed' : null))}>
             <div className="text-area">
               <span className="title">Coconut</span>
               <p className="description">{description["Coconut"]}</p>
@@ -159,13 +178,13 @@ export default function FruitCarousel({state}) {
       </Transition>
 
       <Transition
-        in={Boolean(state === "Strawberry")}
+        in={Boolean(state === "Strawberry" && showComponent)}
         timeout={animationTiming}
         mountOnEnter
         unmountOnExit
       >
         {s => (
-          <div className={(s === 'entering' && showComponent ? 'ModalOpen' : (s === 'exiting' ? 'ModalClosed' : null))}>
+          <div className={(s === 'entering' ? 'ModalOpen' : (s === 'exiting' ? 'ModalClosed' : null))}>
             <div className="text-area">
               <span className="title">Strawberry</span>
               <p className="description">{description["Strawberry"]}</p>
@@ -180,13 +199,13 @@ export default function FruitCarousel({state}) {
       </Transition>
 
       <Transition
-        in={Boolean(state === "Blackberry")}
+        in={Boolean(state === "Blackberry" && showComponent)}
         timeout={animationTiming}
         mountOnEnter
         unmountOnExit
       >
         {s => (
-          <div className={(s === 'entering' && showComponent ? 'ModalOpen' : (s === 'exiting' ? 'ModalClosed' : null))}>
+          <div className={(s === 'entering' ? 'ModalOpen' : (s === 'exiting' ? 'ModalClosed' : null))}>
             <div className="text-area">
               <span className="title">Blackberry</span>
               <p className="description">{description["Blackberry"]}</p>
@@ -201,13 +220,13 @@ export default function FruitCarousel({state}) {
       </Transition>
 
       <Transition
-        in={Boolean(state === "Kiwi")}
+        in={Boolean(state === "Kiwi" && showComponent)}
         timeout={animationTiming}
         mountOnEnter
         unmountOnExit
       >
         {s => (
-          <div className={(s === 'entering' && showComponent ? 'ModalOpen' : (s === 'exiting' ? 'ModalClosed' : null))}>
+          <div className={(s === 'entering' ? 'ModalOpen' : (s === 'exiting' ? 'ModalClosed' : null))}>
             <div className="text-area">
               <span className="title">Kiwi</span>
               <p className="description">{description["Kiwi"]}</p>
@@ -221,10 +240,7 @@ export default function FruitCarousel({state}) {
         )}
       </Transition>
 
-      <div id="designed-by">
-        <Image id="designer-logo" alt="designer-logo" src="/logo_nk.png" width={171} height={18}></Image>
-        <span id="link">nashekrashe.com</span>
-      </div>
+      
     </div>
   );
 }
