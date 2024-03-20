@@ -1,5 +1,5 @@
 # 株式会社マカルーデジタル　フロントエンドエンジニア　採用試験課題
-提示されたUIのうち、2つ目の項目である[Colourful Fruits. Product Carousel Animation]を具現化しました。カルーセルにはライブラリを使用しませんでした。アニメーション具現のため、`react-transition-group`ライブラリを使用しました。
+提示されたUIのうち、2つ目の項目である[Colourful Fruits. Product Carousel Animation](https://www.figma.com/community/file/1251466450658140709)を具現化しました。カルーセルにはライブラリを使用しませんでした。アニメーション具現のため、`react-transition-group`ライブラリを使用しました。
 
 ## 実行方法
 ### 1. dependenciesを設置
